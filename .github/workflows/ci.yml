@@ -113,7 +113,9 @@ jobs:
       - name: Upload Plan Artifact
         uses: actions/upload-artifact@v4
         with:
+          # Stores the artifact with a unique name like tf-plan-dev-123456789
           name: tf-plan-dev-${{ github.run_id }}
+          # Uploads the file tf.plan (created by terraform plan -out=tf.plan in the previous step).
           path: tf.plan
           retention-days: 5
 
