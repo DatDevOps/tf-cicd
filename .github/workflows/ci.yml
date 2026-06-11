@@ -119,6 +119,9 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
 
+      - name: Debug - List backend files
+        run: ls -la ./backends/
+
       - name: Terraform Init
         run: terraform init -backend-config="./backends/${{ matrix.environment }}.hcl"
 
