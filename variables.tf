@@ -23,10 +23,5 @@ variable "vpc_public_subnet_ranges" {
   type        = list(string)
   description = "List of public subnet CIDR ranges for the VPC"
 }
-# not used in this module
-variable "vpc_private_subnet_ranges" {
-  type        = list(string)
-  description = "List of private subnet CIDR ranges for the VPC"
-  default     = []
-}
+
 

@@ -4,11 +4,6 @@ data "aws_availability_zones" "available" {
   state = "available"
 }
 
-locals {
-  # not used variable but I was testing stuff
-  not_used = var.vpc_private_subnet_ranges
-}
-
 # NETWORKING #
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
@@ -23,3 +18,14 @@ module "vpc" {
   enable_dns_hostnames    = true
   map_public_ip_on_launch = true
 }
+
+# add code to create s3 bucket
+resource "aws_s3_bucket" "cicd_bucket" {
+  bucket = "${var.prefix}-${var.environment}-cicd-bucket"
+  tags = {
+    Name        = "${var.prefix}-${var.environment}-cicd-bucket"
+    Environment = var.environment
+    Project     = var.prefix
+  }
+}
+
