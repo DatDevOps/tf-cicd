@@ -54,6 +54,11 @@ jobs:
       - name: Terraform Init
         run: terraform init -backend=false
 
+      - name: Debug - List backend files
+        run: ls -la ./backends/
+      - name: Debug - Show backend file
+        run: cat ./backends/dev.hcl
+
       - name: Terraform Validate
         run: terraform validate
 

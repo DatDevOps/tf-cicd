@@ -24,3 +24,4 @@ variable "vpc_public_subnet_ranges" {
   description = "List of public subnet CIDR ranges for the VPC"
 }
 
+

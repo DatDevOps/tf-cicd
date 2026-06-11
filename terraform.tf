@@ -1,5 +1,5 @@
 terraform {
-  required_version = ">= 1.15.0"
+  required_version = ">= 1.15.6"
   required_providers {
     aws = {
       source  = "hashicorp/aws"
@@ -7,7 +7,6 @@ terraform {
     }
   }
 
-  # backend "s3" {
-  #   # Use contents from backends/*.hcl files
-  # }
+  # Uses contents from backends/*.hcl files where actual backend values are passed in via -backend-config during terraform init
+  backend "s3" {}
 }
