@@ -7,7 +7,7 @@ terraform {
     }
   }
 
-  # backend "s3" {
-  #   # Use contents from backends/*.hcl files
-  # }
+  backend "s3" {
+    # Uses contents from backends/*.hcl files where actual backend values are passed in via -backend-config during terraform init
+  }
 }
