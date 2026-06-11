@@ -4,6 +4,11 @@ data "aws_availability_zones" "available" {
   state = "available"
 }
 
+locals {
+  # not used variable but I was testing stuff
+  not_used = var.vpc_private_subnet_ranges
+}
+
 # NETWORKING #
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
